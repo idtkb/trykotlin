@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TryKotlin</string>
+    <string name="fragment1_title">Fragment1</string>
+    <string name="fragment2_title">Fragment2</string>
+</resources>
