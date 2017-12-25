@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_fragment2.*
 
 class Fragment2 : Fragment() {
 
@@ -19,12 +20,13 @@ class Fragment2 : Fragment() {
         return inflater!!.inflate(R.layout.fragment_fragment2, container, false)
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-    }
-
-    override fun onDetach() {
-        super.onDetach()
+    override fun onStart() {
+        super.onStart()
+        fragment1Button?.setOnClickListener {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.containerFrameLayout, Fragment1.newInstance())
+                    .commit()
+        }
     }
 
     companion object {

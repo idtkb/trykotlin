@@ -12,12 +12,6 @@ class Fragment1 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        fragment2Button?.setOnClickListener {
-            fragmentManager.beginTransaction()
-                .replace(R.id.containerFrameLayout, Fragment2.newInstance())
-                .commit()
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -25,12 +19,13 @@ class Fragment1 : Fragment() {
         return inflater!!.inflate(R.layout.fragment_fragment1, container, false)
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-    }
-
-    override fun onDetach() {
-        super.onDetach()
+    override fun onStart() {
+        super.onStart()
+        fragment2Button?.setOnClickListener {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.containerFrameLayout, Fragment2.newInstance())
+                    .commit()
+        }
     }
 
     companion object {
