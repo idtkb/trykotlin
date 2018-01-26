@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.idtkb.trykotlin.model.User
 import kotlinx.android.synthetic.main.fragment_fragment1.*
 
 class Fragment1 : Fragment() {
@@ -31,8 +32,8 @@ class Fragment1 : Fragment() {
         }
     }
 
-    fun echoText(str: String): String {
-        return str
+    fun echoText(user: User): String {
+        return user.firstName
     }
 
     companion object {

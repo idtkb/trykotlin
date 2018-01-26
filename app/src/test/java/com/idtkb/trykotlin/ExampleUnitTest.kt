@@ -1,11 +1,13 @@
 package com.idtkb.trykotlin
 
-import com.nhaarman.mockito_kotlin.*
+import com.idtkb.trykotlin.model.User
 import org.hamcrest.CoreMatchers.`is`
-//import org.hamcrest.CoreMatchers.`is` as Is
+import org.hamcrest.CoreMatchers.any
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.mockito.Mockito
+import org.mockito.Mockito.*
 
 class ExampleUnitTest {
     @Test
@@ -17,31 +19,15 @@ class ExampleUnitTest {
     fun doAction_doesSomething(){
 
 
-        val spy = spy(Fragment1())
+        val mock: Fragment1 = mock(Fragment1::class.java)
 
-        val mock = mock<Fragment1> {
-            on { echoText("foo") } doReturn "foo"
-            on { echoText("bar") } doReturn "bar"
-        }
+//        Mockito.doNothing().`when`(mock).echoText(Mockito.isA(User::class.java))
+//        Mockito.`when`(mock.echoText(any())).thenReturn("foo")
+//        verify(mock).echoText(any())
 
-        mock.echoText("foo")
-        mock.echoText("bar")
+//        mock.echoText("foo")
+//        mock.echoText("bar")
 
-//        verify(mock).echoText(argThat { this == "foo" } )
-//        verify(mock).echoText(argThat { this == "bar" } )
-//        verify(mock).echoText(check{
-//            assertThat(it, `is`("foo"))
-//            assertThat(it, `is`("bar"))
-//        })
-
-        //引数キャプチャ
-        argumentCaptor<String>().apply {
-            verify(mock, times(2)).echoText(capture())
-
-            assertEquals(2, allValues.size)
-            assertEquals("foo", firstValue)
-            assertEquals("bar", secondValue)
-        }
 //        verify(mock, times(1)).echoText("foo")
 
         //Null安全
